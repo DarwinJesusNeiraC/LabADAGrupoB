@@ -1,7 +1,7 @@
 import java.util.*;
 public class Ejercicio2{
   public static void main (String[]args){
-    int[] arr = new int [1000];
+    int[] arr = new int [10000];
     fillIn(arr);
     long start = System.currentTimeMillis();
     Scanner scan = new Scanner(System.in);
