@@ -1,16 +1,14 @@
+import java.util.Random;
+
 public class Ejercicio3{
   public static void main (String[]args){
-    int [] arr = {2,5,1,6,3};
-    System.out.println("Antes");
-    for (int i : arr) {
-      System.out.println(i);
-    }
+    /*Implementar el ordenamietno por insertion */
+    int [] arr = new int [100];// declaracion de arreglo
+    fillIn(arr);
+    long start = System.currentTimeMillis();
     insertion(arr);
-    System.out.println("Despues");
-    for (int i : arr) {
-      System.out.println(i);
-    }
-
+    long end = System.currentTimeMillis();
+    System.out.println("Tiempo de ejecucion " + (end-start)*1.0e-3 + " segundos");
   }
 
   public static void insertion(int [] arr){
@@ -23,7 +21,13 @@ public class Ejercicio3{
       }
       arr[i + 1] = key;
     }
+  }
 
+  public static void fillIn(int [] arr) {
+    Random ram = new Random();
+    for (int i = 0; i < arr.length; i++) {
+      arr[i] = ram.nextInt(arr.length); 
+    }
   }
 }
 
