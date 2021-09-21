@@ -1,7 +1,8 @@
 import java.util.*;
 public class Ejercicio2{
   public static void main (String[]args){
-    int[] arr = new int [10000];
+    /*Buscar elemento en un arreglo */
+    int[] arr = new int [100000];
     fillIn(arr);
     long start = System.currentTimeMillis();
     Scanner scan = new Scanner(System.in);
