@@ -3,7 +3,7 @@ import java.util.Random;
 public class Ejercicio3{
   public static void main (String[]args){
     /*Implementar el ordenamietno por insertion */
-    int [] arr = new int [1000];// declaracion de arreglo
+    int [] arr = new int [10000];// declaracion de arreglo
     fillIn(arr);
     long start = System.currentTimeMillis();
     insertion(arr);
