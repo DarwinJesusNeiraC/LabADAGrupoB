@@ -1,3 +1,6 @@
+/*Autor:Darwin Jesus Neira Carrasco
+ * Descripción: Clase que sera utilizada para el desarrollo del Algoritmo de emparejamiento
+*/
 public class Persona{
   protected String relation; // para mostrar con quien tiene una relacion
   protected String [] preference; // Se guaradaran  sus preferencias

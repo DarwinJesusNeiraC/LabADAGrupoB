@@ -1,6 +1,8 @@
 import java.util.Scanner;
 public class BinarySearch{
   public static void main (String[]args){
+    /*Autor: Darwin Jesus Neira Carrasco
+     *Descipcion: Uso de algorimo de busqueda binaria, para ciertas cantidades de datos*/
     int [] arr = {100};
     Scanner scan = new Scanner(System.in);
     System.out.println("Ingrese el valor buscado, si el resultado es -1 no se encuentra");
