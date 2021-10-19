@@ -1,4 +1,5 @@
 /*Alumno: Darwin Jesus Neira Carrasco
+ * Correo: dneirac@unsa.edu.pe
  *Descripcion: Realizar un programa que identifique los indices pares y sume los valores del arreglo
  indentificado con dicho indice con el resto de elemetos, El programa tiene una complejidad de O(n^2)*/
 

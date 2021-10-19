@@ -1,4 +1,5 @@
 /*Alumno: Darwin Jesus Neira Carrasco
+ * Correo: dneirac@unsa.edu.pe
  *Descripcion: Encontrar el elemento max de un arreglo, teniendo un tiempo de O(n)*/
 public class greastestNumber{
   public static void main (String[]args){
