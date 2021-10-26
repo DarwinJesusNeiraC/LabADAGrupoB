@@ -1,3 +1,10 @@
+"""
+@Alumno: Darwin Jesus Neira Carrasco
+@Correo: dneirac@unsa.edu.pe
+@Descripcion: Reduccion de una cadena a un valor unico, mediante
+un proceso de separacion de sus elemetos
+
+"""
 def pick_resume(resume):
     eliminate = "top"
     

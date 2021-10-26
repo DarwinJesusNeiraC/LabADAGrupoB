@@ -1,3 +1,9 @@
+"""
+@Alumno: Darwin Jesus Neira Carrasco
+@Correo: dneirac@unsa.edu.pe
+@Descripcion: Busqueda de un patron en una cadena más grande
+
+"""
 def find_neddle(needle, haystack):
     needle_index = 0
     haystack_index = 0
