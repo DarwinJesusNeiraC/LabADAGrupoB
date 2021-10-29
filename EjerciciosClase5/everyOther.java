@@ -15,10 +15,11 @@ public class everyOther{
   }
 
   public static void everyOther(int [] array) {
-    for(int i = 0; i < array.length; i++){
-      if(i % 2 == 0 ){
-        for (int j = 0; j < array.length; j++) {
-          System.out.println(array[i] + array[j]);
+    // max(n²,1) = O(n²)
+    for(int i = 0; i < array.length; i++){ //max(2,n) = n, n * n = n² 
+      if(i % 2 == 0 ){ // max(2,n) = O(n)
+        for (int j = 0; j < array.length; j++) { // max(4n,1) = O(n) //
+          System.out.println(array[i] + array[j]);                   //
         }
         System.out.println("\n");
       }
