@@ -9,7 +9,7 @@ public class greastestNumber{
 
   public static int greastestNumber(int [] array){
     int value = array[0];
-    for (int i = 1; i < array.length; i++) {
+    for (int i = 1; i < array.length; i++) { // max(3n,1) = O(n)
       if(value < array[i]){
         value = array[i];
       }
