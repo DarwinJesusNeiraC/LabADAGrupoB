@@ -1,8 +1,9 @@
 /*
- * Autor: Darwin Jesus Neira Carrasco
- * Correo: dneirac@unsa.edu.pe
- * Descripcion: Encontrar 2 numeros que sumen 10 y sean distintos
- * la complijidad del elemento es de O(n²)*/
+ * @Autor: Darwin Jesus Neira Carrasco
+ * @Correo: dneirac@unsa.edu.pe
+ * @Descripcion: Encontrar 2 numeros que sumen 10 y sean distintos
+ * la complijidad del elemento es de O(n²)
+*/
 
 public class twoSum{
   public static void main (String[]args){
@@ -15,9 +16,9 @@ public class twoSum{
 
   }
   public static boolean twoSum(int [] arr){
-    for (int i = 0; i < arr.length; i++) {
-      for (int j = 0; j < arr.length; j++) {
-        if((i != j) && ( arr[i] + arr[j] == 10 )){
+    for (int i = 0; i < arr.length; i++) { // max(n,2) = O(n * n) = O(n²)
+      for (int j = 0; j < arr.length; j++) { // max(5n,1) = O(n)
+        if((i != j) && ( arr[i] + arr[j] == 10 )){ // O(3)
           return true;
         }
       }
