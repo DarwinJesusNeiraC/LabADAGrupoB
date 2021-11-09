@@ -1,8 +1,12 @@
+/*
+ * @Autor: Darwin Jesus Neira Carrasco
+ * @Correo: dneira@unsa.edu.pe
+ * @Descipcion: Uso del algoritmo de buscada binaria para la comprobacion del su un numero es cuadratico 
+*/
+
 import java.util.Scanner;
 public class bSCuadratic{
   public static void main (String[]args){
-    /*Autor: Darwin Jesus Neira Carrasco
-     *Descipcion: Uso de algorimo de busqueda binaria, para ciertas cantidades de datos*/
     int [] arr = new int [10];
     Scanner scan = new Scanner(System.in);
     fillIn(arr);

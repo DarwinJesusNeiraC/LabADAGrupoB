@@ -1,7 +1,11 @@
+/*
+ * @Autor: Darwin Jesus Neira Carrasco
+ * @Correo: dneirac@unsa.edu.pe
+ * @Descipcion: Uso de algorimo de busqueda binaria, encontrar el items más pequeño
+*/
+
 public class bSLess{
   public static void main (String[]args){
-    /*Autor: Darwin Jesus Neira Carrasco
-     *Descipcion: Uso de algorimo de busqueda binaria, para ciertas cantidades de datos*/
     //int [] arr = {6,7,9,15,19,2,3};
     int [] arr = {2,3,6,7,9,15,19};
     System.out.println("Ingrese el valor buscado, si el resultado es -1 no se encuentra");

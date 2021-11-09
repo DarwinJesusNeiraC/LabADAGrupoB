@@ -1,8 +1,12 @@
+/*
+ * @Autor: Darwin Jesus Neira Carrasco
+ * @Correo: dneirac@unsa.edu.pe
+ * @Descipcion: Uso de algorimo de busqueda binaria, para la busqueda de un numero mayor o igual al buscado
+*/
+
 import java.util.Scanner;
 public class bSEqlOrMore{
   public static void main (String[]args){
-    /*Autor: Darwin Jesus Neira Carrasco
-     *Descipcion: Uso de algorimo de busqueda binaria, para ciertas cantidades de datos*/
     int [] arr = new int [10];
     Scanner scan = new Scanner(System.in);
     fillIn(arr);
@@ -18,21 +22,21 @@ public class bSEqlOrMore{
     int low = 0;
     int high = arr.length-1;
     int middle = 0;
-      while(low <= high){
-        middle = ( low + high ) / 2;
-        if(arr[middle] == value){
-          return arr[middle + 1];
-        }
-        else{
-          if(value < arr[middle]){
-            high = middle - 1;
-          }
-          else {
-            low = middle + 1;
-          }
-        }
-
+    while(low <= high){
+      middle = ( low + high ) / 2;
+      if(arr[middle] == value){
+        return arr[middle + 1];
       }
+      else{
+        if(value < arr[middle]){
+          high = middle - 1;
+        }
+        else {
+          low = middle + 1;
+        }
+      }
+
+    }
     return arr[middle];
   }
 

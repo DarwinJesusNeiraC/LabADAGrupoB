@@ -1,16 +1,17 @@
+/*
+ @Autor: Darwin Jesus Neira Carrasco
+ @Correo: dneirac@unsa.edu.pe
+ @Descipcion: Busquda dde datos haciendo uso del algortimo de busqueda binaria
+*/
+
 import java.util.Scanner;
-public class BinarySearch{
+public class binarySearch{
   public static void main (String[]args){
-    /*Autor: Darwin Jesus Neira Carrasco
-     *Descipcion: Uso de algorimo de busqueda binaria, para ciertas cantidades de datos*/
-    int [] arr = {100};
+    int [] arr = new int [10];
     Scanner scan = new Scanner(System.in);
     System.out.println("Ingrese el valor buscado, si el resultado es -1 no se encuentra");
     int value = scan.nextInt();
-    long start = System.currentTimeMillis();
     System.out.println("position: " + (binarySearch(arr, value)));
-    long end = System.currentTimeMillis();
-    System.out.println("Tiempo de ejecucion " + (end-start)*1.0e-3 + " segundos");
   }
 
   public static int binarySearch(int [] arr , int value){
