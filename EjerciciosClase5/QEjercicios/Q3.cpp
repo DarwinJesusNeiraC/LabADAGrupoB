@@ -1,4 +1,8 @@
-//comentarios
+/*
+ * @Autor: Darwin Jesus Neira Carrasco
+ * @Correo: dneirac@unsa.edu.pe
+ * @Descripcion: Complijidad del elemento es de O(n)
+*/
 
 #include<iostream>
 
