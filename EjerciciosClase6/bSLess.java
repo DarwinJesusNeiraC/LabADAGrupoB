@@ -6,9 +6,10 @@
 
 public class bSLess{
   public static void main (String[]args){
+    // Casos de prueba
     //int [] arr = {6,7,9,15,19,2,3};
-    int [] arr = {2,3,6,7,9,15,19};
-    System.out.println("Ingrese el valor buscado, si el resultado es -1 no se encuentra");
+    int [] arr = {9,15,19,1,3,6,7};
+    //int [] arr = {0,3,6,7,9,15,19};
     System.out.println("menor elemento: " + (binarySearch(arr)));
   }
 
@@ -19,17 +20,17 @@ public class bSLess{
     while(low <= high){
       System.out.println("entre a while");
       middle = ( low + high ) / 2;
-      if(arr[low] < arr[middle]){
-        low = middle + 1;
+      if(arr[low] < arr[high]){ // Dependiendo de los valores de los extremos estableceremos los valores de 
+        high = middle;// low y high
       }
-      else{
-        high = middle - 1;
+      else if(arr[low] > arr[high]){
+        low = middle;
       }
-      if(low == high){
+      if(low == high){// cuando se encuentre una coincidencia enter low y high se devolvera el valor
         return arr[middle];
       }
     }
-    return arr[middle];
+    return arr[middle]; 
   }
 
   // metodo de llenado del arreglo
