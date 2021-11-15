@@ -1,3 +1,9 @@
+/*
+ * @Autor:Darwin Jesus Neira Carrasco
+ * @Email: dneirac@unsa.edu.pe
+ * @Descripcion: Mediante el uso de DFS, pintar(1) los espacios disponibles(0), teniendo en cuenta a las paredes(#)
+*/
+
 public class table{
   public static void main (String[]args){
     String [][] arr = new String [6][6];
@@ -45,9 +51,6 @@ public class table{
   public static void DFS(String [][] arr , int x, int y){
     System.out.println("valor x: " + x + ", valor y: " + y); // seguimiento
     // En caso sea pared
-    if(x == arr.length || y == arr.length){
-      return;
-    }
     if(arr[x][y].equals("#")){
       System.out.println("pared");
       return;
