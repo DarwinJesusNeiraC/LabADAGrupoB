@@ -3,7 +3,8 @@ public class table{
     String [][] arr = new String [6][6];
     inicializar(arr);
     print(arr);
-    DFS(arr, 2, 2); // punto de inicio
+    //DFS(arr, 2, 2); // punto de inicio
+    DFS(arr, 5, 5); // punto de inicio
   }
 
   // Metodo para inicializacion de los valores de la tabla
@@ -44,6 +45,9 @@ public class table{
   public static void DFS(String [][] arr , int x, int y){
     System.out.println("valor x: " + x + ", valor y: " + y); // seguimiento
     // En caso sea pared
+    if(x == arr.length || y == arr.length){
+      return;
+    }
     if(arr[x][y].equals("#")){
       System.out.println("pared");
       return;
@@ -59,15 +63,20 @@ public class table{
     if(arr[x-1][y].equals("0")){
       DFS(arr, x-1, y);
     }
-    if(arr[x+1][y].equals("0")){
-      DFS(arr, x+1, y);
+    if( (x + 1) != arr.length ){
+      if(arr[x+1][y].equals("0")){
+        DFS(arr, x+1, y);
+      }
     }
+
     // Derecha e Izquierda
     if(arr[x][y-1].equals("0")){
-       DFS(arr, x, y-1);
+      DFS(arr, x, y-1);
     }
-    if(arr[x][y+1].equals("0")){
-      DFS(arr, x, y+1);
+    if((y +1) != arr.length){
+      if(arr[x][y+1].equals("0")){
+        DFS(arr, x, y+1);
+      }
     }
   }
 }
