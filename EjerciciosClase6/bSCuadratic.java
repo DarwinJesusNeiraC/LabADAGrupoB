@@ -7,13 +7,10 @@
 import java.util.Scanner;
 public class bSCuadratic{
   public static void main (String[]args){
-    int [] arr = new int [10];
     Scanner scan = new Scanner(System.in);
-    fillIn(arr);
-    System.out.println("Ingrese el valor buscado, si el resultado es -1 no se encuentra");
+    System.out.print("Se verificara si el numero ingresado es un cuadratico de 0 a 100\nIngrese el valor buscado, el resultado puede ser Si o No: ");
     int value = scan.nextInt();
-    int resul = binarySearch(arr, value);
-    System.out.println("position: " + resul);
+    int resul = binarySearch(value);
     if(resul == -1){
       System.out.println("No");
     }
@@ -22,34 +19,25 @@ public class bSCuadratic{
     }
   }
 
-  public static int binarySearch(int [] arr , int value){
+  public static int binarySearch(int value){
     int low = 0;
-    int high = arr.length-1;
+    int high = 10;
     while(low <= high){
       int middle = ( low + high ) / 2;
-      if(arr[middle]*arr[middle] == value){
+      if(middle*middle == value){
         return middle;
       }
       else{
-        if(value < arr[middle]){
-          high = middle - 1;
+        if(value > middle * middle){
+          low = middle + 1;
         }
         else {
-          low = middle + 1;
+          high = middle - 1;
         }
       }
 
     }
     return -1;
-  }
-
-  // metodo de llenado del arreglo
-  public static void fillIn (int [] arr) {
-    int a = 0;
-    for (int i = 0; i < arr.length; i++) {
-      arr[i] = a;
-      a++;
-    }
   }
 }
 
