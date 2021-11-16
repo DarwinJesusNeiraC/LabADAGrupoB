@@ -1,6 +1,6 @@
 /*
  * @Autor: Darwin Jesus Neira Carrasco
- * @Correo: dneirac@unsa.edu.pe
+ * @Correo: dneirac@unsa.edu.pe  
  * @Descipcion: Uso de algorimo de busqueda binaria, encontrar el items más pequeño
 */
 
