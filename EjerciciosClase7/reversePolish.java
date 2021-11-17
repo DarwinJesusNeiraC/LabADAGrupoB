@@ -13,26 +13,22 @@ public class reversePolish{
     String string = scan.nextLine();
     System.out.println(string);
     Stack<String> myStack = new Stack<String>();
-    verification(string,myStack);
-    for (String s : string.split(" ")) { // el metodo split nos permite separar un string
-      System.out.println("valor split de : " + s);
-      operation(s, myStack);
+    if(string.equals("")){
+      System.out.println("No se aceptan cadenas vacias");
     }
-    System.out.println(myStack.peek());
-
+    else {
+      for (String s : string.split(" ")) { // el metodo split nos permite separar un string
+        System.out.println("valor split de : " + s);
+        operation(s, myStack);
+      }
+      System.out.println(myStack.peek());
+    }
   }
 
   public static void print(Stack<String> myStack) { // imprimir la pila 
     for (int i = myStack.size() - 1; i >= 0; i--) {
       System.out.println(myStack.get(i));
     }  
-  }
-  private static String verification (String s,Stack<String> myStack){
-    if(!s.equals("")){
-      operation(s, myStack);
-    }
-
-    return "No se aceptan cadenas vacias";
   }
 
   private static void  operation (String s , Stack<String> myStack) {
