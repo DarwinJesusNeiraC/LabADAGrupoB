@@ -10,7 +10,8 @@ public class parenthesesValid{
     //String cadena = "())";
     //String cadena = "(()))(";
     //String cadena = "(((";
-    String cadena = "()))((";
+    //String cadena = "()))((";
+    String cadena = "";
 
     Stack<String> myStack = new Stack<String>();
     for (int i = 0; i < cadena.length(); i++) {
