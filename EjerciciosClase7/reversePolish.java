@@ -10,8 +10,13 @@ public class reversePolish{
   public static void main (String[]args){
     Scanner scan = new Scanner(System.in);
     System.out.print("Ingrese la cadena deseada: ");
-    String string = scan.nextLine();
-    System.out.println(string);
+    String string;
+    ///string = scan.nextLine();
+    //System.out.println(string);
+    // casos de prueba 
+    //string = "2 1 + 3 *";
+    string = "4 13 5 / +";
+    //string = "10 6 9 3 + -11 * / * 17 + 5 +";
     Stack<String> myStack = new Stack<String>();
     if(string.equals("")){
       System.out.println("No se aceptan cadenas vacias");
