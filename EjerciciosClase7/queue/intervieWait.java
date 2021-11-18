@@ -1,12 +1,17 @@
+/*
+ * @Autor: Darwin Jesus Neira Carrasco
+ * @Email: dneirac@unsa.edu.pe
+ * @Descripcion: Medinate el siguiente promaga se calcula el timpo que demoras en ser evaluado, siendo '-1' tu representacion
+ * en los datos, se iran escoginedo los menores de los extremos
+ */
+
 import java.util.Deque;
 import java.util.LinkedList;
 public class intervieWait{
   public static void main (String[]args){
     Deque<Integer> myDeque = new LinkedList<Integer>();
     fill(myDeque);
-    select(myDeque);
-
-    //System.out.println("Cantidad de tiempo: " + select(myDeque));
+    System.out.println("Cantidad de tiempo: " + select(myDeque));
     System.out.println("Resultado: " + print(myDeque));
   }
 
@@ -25,7 +30,6 @@ public class intervieWait{
         cont += myDeque.pollLast();
       }
     }
-    System.out.println("Cont : " + cont);
     return cont;
   }
   // Este metodo servira para probar más facilmetne el programa
