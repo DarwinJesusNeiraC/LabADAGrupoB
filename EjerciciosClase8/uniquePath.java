@@ -49,7 +49,6 @@ public class uniquePath{
         print(all);
       }
     }
-    //print(all);
     return all[x-1][y-1];
 
   }
