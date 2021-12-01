@@ -1,6 +1,6 @@
 public class uniquePath{
   public static void main (String[]args){
-    int [][] obstacleGrid = new int [3][2];
+    int [][] obstacleGrid = new int [3][3];
     table(obstacleGrid);
     print(obstacleGrid);
     convert(obstacleGrid);
@@ -12,6 +12,8 @@ public class uniquePath{
     int x = obstacleGrid.length;
     int y = obstacleGrid[0].length;
     int [][] all = new int [x][y];
+    
+    // en caso la posicion de destino este con una piedra
     if(obstacleGrid[x-1][y-1] == -2){
       return 0;
     }   
@@ -38,34 +40,23 @@ public class uniquePath{
     // esto sera el llenaod par las posiciones de i >=1 & j >=1
     for (int i = 1; i < x; i++) {
       for (int j = 1; j < y; j++) {
-        if(i >= 1 && j >= 1){ // esta condicion sera quitada ya que no es nesearia
-          System.out.println("ya no estoy en la primera fila");
-          if(obstacleGrid[i][j] == -2){
-            if(obstacleGrid[i-1][j] == -2){
-              continue;
-            }
-            continue;
-          }
-          if(obstacleGrid[i-1][j] == -2){
-            System.out.println("mi anterior es un -2");
-            all[i][j] = 0;
-            continue;
-          }
-          
-          if(all[i-1][j] != -1 && all[i][j-1] != -1){
-            System.out.println("ninguno de mis anteriores es una piedra");
-            all[i][j] = all[i-1][j] + all[i][j-1];
-          }
-          if(all[i-1][j] == -2){
-            System.out.println("en mi fila anterior hay una piedra");
-            all[i][j] = all[i][j-1];
-          }
-          if(all[i][j-1] == -2){
-            System.out.println("en mi columna anterior hay una piedra");
-            all[i][j] = all[i-1][j];
-          }
+        if(obstacleGrid[i][j] == -2){
+          System.out.println("uno de los antiguos es -2");
+          continue;
         }
 
+        if(all[i-1][j] != -1 && all[i][j-1] != -1){
+          System.out.println("ninguno de mis anteriores es una piedra");
+          all[i][j] = all[i-1][j] + all[i][j-1];
+        }
+        if(all[i-1][j] == -2){
+          System.out.println("en mi fila anterior hay una piedra");
+          all[i][j] = all[i][j-1];
+        }
+        if(all[i][j-1] == -2){
+          System.out.println("en mi columna anterior hay una piedra");
+          all[i][j] = all[i-1][j];
+        }
         print(all);
       }
     }
@@ -81,18 +72,17 @@ public class uniquePath{
     // definimos la piedra con un valor de -2
     //all[0][1] = -2; 
     all[1][1] = 1;//-2; 
-    all[1][0] = 1;//-2; 
+    //all[1][0] = 1;//-2; 
     //all[1][2] = 1;//-2; 
   }
+
   public static void  convert(int [][] obstacleGrid){
     for (int i = 0; i < obstacleGrid.length; i++) {
       for (int j = 0; j < obstacleGrid[i].length; j++) {
         if(obstacleGrid[i][j] == 1){
           obstacleGrid[i][j] = -2;
         }
-
       }
-
     }
   }
 
