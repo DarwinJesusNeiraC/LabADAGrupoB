@@ -16,30 +16,29 @@ public class uniquePath{
       return 0;
     }   
 
-    // 
-    for (int i = 0; i < x; i++) {
+    //  llenado fila
+    for (int i = 0; i < y; i++) {
       if(obstacleGrid[0][i] == -2){
-        break;
+        break; // mediante esto se evita seguir ,cuando se tiene una pidra en el camino
       }
       else{
         all[0][i] = 1;
       }
     }
-
+    // llenado colummna
+    for (int i = 0; i < x; i++) {
+       if(obstacleGrid[i][0] == -2){
+        break;// mediante esto se evita seguir ,cuando se tiene una pidra en el camino
+      }
+      else{
+        all[i][0] = 1;
+      }     
+    }
     for (int i = 0; i < obstacleGrid.length; i++) {
       for (int j = 0; j < obstacleGrid[i].length; j++) {
         System.out.println("posicion i: " + i + " j: " + j );
-        // se eliminara esto para llenarlo desde fuera la primera fila
-        if(i == 0 && obstacleGrid[i][j] == -2){
-          System.out.println("roto, valor j : " + j);
-          break;
-        }
 
-        // se elimara debido a que se llena la primera fila
-        if(i == 0){
-          all[i][j] = 1;
-        }
-
+        // esta seccion sera elimado, dado que ya esta hecho la parte de llenado anterior
         if(j == 0){
           all[i][j] = 1;
         }
@@ -47,6 +46,7 @@ public class uniquePath{
         if(j == 0 && obstacleGrid[i][j] == -2){
           all[i][j] = 0;
         }
+        // 
         if(i >= 1 && j >= 1){
           System.out.println("ya no estoy en la primera fila");
           if(obstacleGrid[i][j] == -2){
