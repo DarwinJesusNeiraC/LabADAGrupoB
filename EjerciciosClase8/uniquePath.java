@@ -1,3 +1,11 @@
+/*
+ * @Autor: Darwin Jesus Neira Carrasco
+ * @Email: dneirac@unsa.edu.pe
+ * @Descripcion: En este programa se pide calcular la cantidad de caminos disponibles para llegar a cierto punto 
+ * en un arreglo bidimencional, se estacle como piedra = -2 y como camino donde se puede caminar como 1, este valor
+ * puede aumentar si es que hay más de un camino con rutas similares
+ */
+
 public class uniquePath{
   public static void main (String[]args){
     int [][] obstacleGrid = new int [3][3];
@@ -68,6 +76,7 @@ public class uniquePath{
 
   }
 
+  // seccion para poner las piedras durante el desarrollo
   public static void table(int [][] all){
     // definimos la piedra con un valor de -2
     //all[0][1] = -2; 
@@ -76,6 +85,7 @@ public class uniquePath{
     //all[1][2] = 1;//-2; 
   }
 
+  // se establecioeron parametros personales para el desarrollo del problema, y se modifica la entrada dada por la pagina
   public static void  convert(int [][] obstacleGrid){
     for (int i = 0; i < obstacleGrid.length; i++) {
       for (int j = 0; j < obstacleGrid[i].length; j++) {
@@ -86,6 +96,7 @@ public class uniquePath{
     }
   }
 
+  // usado para el seguimiento del llenado y verificacion de datos
   public static void print(int [][] all){
     for (int i = 0; i < all.length; i++) {
       System.out.println();
