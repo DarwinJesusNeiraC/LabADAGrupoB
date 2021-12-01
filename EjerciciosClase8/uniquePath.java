@@ -34,20 +34,11 @@ public class uniquePath{
         all[i][0] = 1;
       }     
     }
-    for (int i = 0; i < obstacleGrid.length; i++) {
-      for (int j = 0; j < obstacleGrid[i].length; j++) {
-        System.out.println("posicion i: " + i + " j: " + j );
 
-        // esta seccion sera elimado, dado que ya esta hecho la parte de llenado anterior
-        if(j == 0){
-          all[i][j] = 1;
-        }
-
-        if(j == 0 && obstacleGrid[i][j] == -2){
-          all[i][j] = 0;
-        }
-        // 
-        if(i >= 1 && j >= 1){
+    // esto sera el llenaod par las posiciones de i >=1 & j >=1
+    for (int i = 1; i < x; i++) {
+      for (int j = 1; j < y; j++) {
+        if(i >= 1 && j >= 1){ // esta condicion sera quitada ya que no es nesearia
           System.out.println("ya no estoy en la primera fila");
           if(obstacleGrid[i][j] == -2){
             if(obstacleGrid[i-1][j] == -2){
@@ -60,6 +51,7 @@ public class uniquePath{
             all[i][j] = 0;
             continue;
           }
+          
           if(all[i-1][j] != -1 && all[i][j-1] != -1){
             System.out.println("ninguno de mis anteriores es una piedra");
             all[i][j] = all[i-1][j] + all[i][j-1];
@@ -77,6 +69,7 @@ public class uniquePath{
         print(all);
       }
     }
+
     System.out.println("posicion i: " + (x-1) + " j: " + (y-1));
     System.out.println(all[x-1][y-1]);
 
