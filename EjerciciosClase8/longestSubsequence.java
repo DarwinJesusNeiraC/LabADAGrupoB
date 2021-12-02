@@ -1,9 +1,10 @@
 import java.util.*;
 public class longestSubsequence{
   public static void main (String[]args){
-    int [] nums = {10,9,2,5,3,7,101,18};
+    //int [] nums = {10,9,2,5,3,7,101,18};
     //int [] nums = {7,7,7,7,7,7,7};
     //int [] nums = {0,1,0,3,2,3};
+    int [] nums = {4,10,4,3,8,9};
     System.out.println("la cadena más larga es de : " + lengthOfLIS(nums));
 
   }
@@ -31,14 +32,45 @@ public class longestSubsequence{
           if(all[i][j-1] == nums[j]){
             continue;
           }
-          if(all[0][0] == nums[j]){
+          /*if(all[0][0] == nums[j]){
+            /*if(all[i][j-1] > nums[j]){
+              System.out.println("anterior");
+              all[i][j-1] = nums[j];
+              all[i][j] = 0;
+              cant[i] -= 1;
+            }
+            else{
             continue;
-          }
+            }/
+            continue;
+          }*/
           if(all[i][j-1] > nums[j]){
-            System.out.println("anterior");
-            all[i][j-1] = nums[j];
-            all[i][j] = 0;
-            cant[i] -= 1;
+            if(all[0][0] == nums[j]){
+              if(all[i][j-1] < nums[j+1]){
+                all[i][j] = 0;
+              }
+              else{
+                all[i][j-1] = 0;
+                all[i][j] = 0;
+                cant[i] -= 1;
+              }
+
+            }
+            else {
+              System.out.println("anterior");
+              all[i][j-1] = nums[j];
+              all[i][j] = 0;
+              cant[i] -= 1;
+            }
+            /*System.out.println("anterior");
+              all[i][j-1] = nums[j];
+              all[i][j] = 0;
+              cant[i] -= 1;*
+            if(all[i][j-1] == all[0][0]){
+              all[i][j-1] = 0;
+              cant[i] -= 1;
+            }*/
+
           }
         }
         else {
