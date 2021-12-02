@@ -12,77 +12,21 @@ public class longestSubsequence{
 
   public static int lengthOfLIS(int[] nums){
     int n = nums.length;
-    int [][] all = new int [n][n];
     int [] cant = new int [n];
-
-    for (int i = 0; i < all.length; i++) {
-      all[i][0] = nums[i];
-      cant[i] += 1;
+    for (int i = 0; i < cant.length; i++) {
+      cant[i] = 1;
     }
-    for (int i = 0; i < all.length-1; i++) {
-      for (int j = i+1; j < all[i].length; j++) {
+
+    for (int i = 0; i < n-1; i++) {
+      for (int j = i+1; j < n; j++) {
         if(nums[i] < nums[j]){
-          System.out.println("mayor " + nums[j]);
-          all[i][j] = nums[j];
-          cant[i] += 1;
+          cant[j] = Math.max(cant[j], cant[i] + 1);
         }
-        for (int k : cant) {
-          System.out.println(k);
+        else{
+          continue;
         }
-        if(j > 1 && j < all[i].length-1){
-          if(all[i][j-1] == nums[j]){
-            continue;
-          }
-          /*if(all[0][0] == nums[j]){
-            /*if(all[i][j-1] > nums[j]){
-              System.out.println("anterior");
-              all[i][j-1] = nums[j];
-              all[i][j] = 0;
-              cant[i] -= 1;
-            }
-            else{
-            continue;
-            }/
-            continue;
-          }*/
-          if(all[i][j-1] > nums[j]){
-            if(all[0][0] == nums[j]){
-              if(all[i][j-1] < nums[j+1]){
-                all[i][j] = 0;
-              }
-              else{
-                all[i][j-1] = 0;
-                all[i][j] = 0;
-                cant[i] -= 1;
-              }
-
-            }
-            else {
-              System.out.println("anterior");
-              all[i][j-1] = nums[j];
-              all[i][j] = 0;
-              cant[i] -= 1;
-            }
-            /*System.out.println("anterior");
-              all[i][j-1] = nums[j];
-              all[i][j] = 0;
-              cant[i] -= 1;*
-            if(all[i][j-1] == all[0][0]){
-              all[i][j-1] = 0;
-              cant[i] -= 1;
-            }*/
-
-          }
-        }
-        else {
-          if(j > 1 &&  all[i][j-1] > nums[j]){
-            all[i][j] = 0;
-            cant[i] -= 1;
-          }
-        }      
-      }
+      }      
     }
-    print(all);
     for (int i : cant) {
       System.out.println(i);
     }
