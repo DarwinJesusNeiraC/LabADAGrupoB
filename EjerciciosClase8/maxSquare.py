@@ -6,8 +6,11 @@ def maximalSquare(matrix):
 
     printMatrix(matrix)
 
-    if len(matrix) == 0 or len(matrix[0]) == 0:
-        return 0;
+    if len(matrix) == 1 and len(matrix[0]) == 1:
+        if matrix[0][0] == 1:
+            return 1
+        else:
+            return 0
     else:
         if len(matrix) == 1 or len(matrix[0]) == 1:
             return maxMatrix(matrix)
@@ -20,6 +23,7 @@ def printMatrix(matrix):
             print(matrix[x][y], end = "\t")
         print()
 
+# maximo en el arreglo
 def maxMatrix(matrix):
     max = matrix[0][0]
     for x in range(len(matrix)):
@@ -29,6 +33,8 @@ def maxMatrix(matrix):
     return max
 
 #matrix = [["1"],["1"],["0"],["0"],["0"],["1"]]
-matrix = [["1","0","0","1","0"]]
+#matrix = [["1","0","0","1","0"]]
+#matrix = [["0"]]
+matrix = [["1"]]
 #matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
 print("Salida: " , maximalSquare(matrix))
