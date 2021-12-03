@@ -1,20 +1,19 @@
+'''
+@Autor: Darwin Jesus Neira Carrasco
+@Email: dneirac@unsa.edu.pe
+@Descripcion: Encontrar el cuadro maximo formado por solo numeros 1.
+'''
 def maximalSquare(matrix):
     # recisicimos un arreglo de tipo str lo convertiremos a int
-    
     for x in range(len(matrix)):
         for y in range(len(matrix[x])):
             matrix[x][y] = int(matrix[x][y])
 
     # declaracion de un arraglo bidimencional en python
+    # se creo arr, dado que si se modificar matrix, presento un dar error en varios de lso casos de prueba
     w = len(matrix)
     h = len(matrix[0])
-    print("w: ", w)
-    print(w + 1)
-    print("h: ", h)
-    print(h + 1)
-    # se creo arr, dado que si se modificar matrix, presento un dar error en varios de lso casos de prueba
     arr = [[0 for x in range(h + 1)] for y in range(w + 1)]
-    print("len arr ", len(arr))
 
     printMatrix(arr)
 
