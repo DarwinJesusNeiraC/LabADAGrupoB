@@ -17,10 +17,11 @@ def maximalSquare(matrix):
         else:
             for x in range(1,len(matrix)):
                 for y in range(1,len(matrix[x])):
-                    if matrix[x-1][y-1] == matrix[x][y-1] and matrix[x-1][y-1] == matrix[x-1][y]:
-                        matrix[x][y] += 1
-                    else:
-                        continue
+                    matrix[x][y] = min(matrix[x-1][y-1],matrix[x][y-1],matrix[x-1][y]) + 1
+                    #if matrix[x-1][y-1] == matrix[x][y-1] and matrix[x-1][y-1] == matrix[x-1][y]:
+                    #    matrix[x][y] += 1
+                    #else:
+                    #    continue
 
             result = maxMatrix(matrix) 
             return result * result
@@ -45,7 +46,8 @@ def maxMatrix(matrix):
 #matrix = [["1","0","0","1","0"]]
 #matrix = [["0"]]
 #matrix = [["1"]]
-
 #matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
-matrix = [["0","1"],["1","0"]]
+matrix = [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+#matrix = [["0","1"],["1","0"]]
+#matrix = [["1","1","1","1","0"],["1","1","1","1","0"],["1","1","1","1","1"],["1","1","1","1","1"],["0","0","1","1","1"]]
 print("Salida: " , maximalSquare(matrix))
