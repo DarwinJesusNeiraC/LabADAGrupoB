@@ -36,10 +36,7 @@ def maximalSquare(matrix):
                         arr[x][y] = min(arr[x-1][y-1],arr[x][y-1],arr[x-1][y]) + 1
                     print("\n-----------------------------------------\n")
                     printMatrix(arr)
-                    #if matrix[x-1][y-1] == matrix[x][y-1] and matrix[x-1][y-1] == matrix[x-1][y]:
-                    #    matrix[x][y] += 1
-                    #else:
-                    #    continue
+
             result = maxMatrix(arr) 
             return result * result
 
