@@ -24,9 +24,10 @@ public class bankQueue{
   public static void main (String[]args){
     Scanner scan = new Scanner(System.in);
 
-    int N = scan.nextInt();
-    int T = scan.nextInt();
+    int N = scan.nextInt(); // perosnas en la cola
+    int T = scan.nextInt(); // timpo que estan dispuestos a esperar
     client [] arr = new client[N];
+    int [][] intarr = new int [T][N];
 
     for (int i = 0; i < arr.length; i++) {
       int money = scan.nextInt();
@@ -34,15 +35,32 @@ public class bankQueue{
       arr[i] = new client(money, time);
     }
 
-    for (client client : arr) {
+    /*for (client client : arr) {
       System.out.println(client);
-    }
+    }*/
 
     for (int i = 0; i < arr.length; i++) {
-      if(arr[i].time == i){
-        int max = arr[i].money;
-      }
+      //System.out.println("valor de arr[i] : " + arr[i].time);
+      intarr[arr[i].time][i] = arr[i].money;
     }  
+    //print(intarr);
+    int x = 0;
+    for (int i = 0; i < intarr.length; i++) {
+      int max = intarr[i][0];
+      for (int j = 1; j < intarr[0].length; j++) {
+        max = Math.max(max, intarr[i][j]);
+      }      
+      x += max;
+    }
+    System.out.println(x);
+  }
+  public static void print(int [][] intarr){
+    for (int i = 0; i < intarr.length; i++) {
+      for (int j = 0; j < intarr[0].length; j++) {
+        System.out.print(intarr[i][j] + "\t");
+      }
+      System.out.println();
+    }
   }
 }
 
