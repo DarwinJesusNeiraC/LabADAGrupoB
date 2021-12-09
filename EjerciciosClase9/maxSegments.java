@@ -6,9 +6,14 @@
 
 public class maxSegments{
   public static void main (String[]args){
-    int [] A = {1,3,7,9,9};
-    int [] B = {5,6,8,9,10};
-
+    //int [] A = {1,3,7,9,9};
+    //int [] B = {5,6,8,9,10};
+    //int [] A = {7,9,9,11,23,45};
+    //int [] B = {8,9,10,12,36,60};
+    //int [] A = {};
+    //int [] B = {};
+    int [] A = {1,2};
+    int [] B = {2,5};
     System.out.println(solution(A, B));
 
   }
