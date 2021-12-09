@@ -90,13 +90,5 @@ public class bankQueue{
       }
     }
   }
-  public static void print(int [][] intarr){
-    for (int i = 0; i < intarr.length; i++) {
-      for (int j = 0; j < intarr[0].length; j++) {
-        System.out.print(intarr[i][j] + "\t");
-      }
-      System.out.println();
-    }
-  }
 }
 
