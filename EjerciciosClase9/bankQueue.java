@@ -33,7 +33,6 @@ public class bankQueue{
     // Collections.reverseOrder() nos permite ordenar la lista de prioridad de mayor a menor
 
     client [] arr = new client[N];
-    //int [][] intarr = new int [T][N];
     int [] maximos = new int [T];
 
     // entrada de datos para cada cliente
