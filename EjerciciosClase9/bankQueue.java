@@ -4,9 +4,12 @@
  * @Descripcion: 
  */
 
+import java.util.Collections;
+import java.util.PriorityQueue;
 import java.util.Scanner;
+
 public class bankQueue{
-  public static class client{
+  public static class client {
     protected int money;
     protected int time;
 
@@ -17,19 +20,24 @@ public class bankQueue{
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
-        return money +  " : " + time;
+      // TODO Auto-generated method stub
+      return money +  " : " + time;
     }
+
   }
   public static void main (String[]args){
     Scanner scan = new Scanner(System.in);
 
     int N = scan.nextInt(); // perosnas en la cola
     int T = scan.nextInt(); // timpo que estan dispuestos a esperar
-    client [] arr = new client[N];
-    int [][] intarr = new int [T][N];
+    // Collections.reverseOrder() nos permite ordenar la lista de prioridad de mayor a menor
 
-    for (int i = 0; i < arr.length; i++) {
+    client [] arr = new client[N];
+    //int [][] intarr = new int [T][N];
+    int [] maximos = new int [T];
+
+    // entrada de datos para cada cliente
+    for (int i = 0; i < N ; i++) {
       int money = scan.nextInt();
       int time = scan.nextInt();
       arr[i] = new client(money, time);
@@ -39,20 +47,48 @@ public class bankQueue{
       System.out.println(client);
     }*/
 
-    for (int i = 0; i < arr.length; i++) {
-      //System.out.println("valor de arr[i] : " + arr[i].time);
-      intarr[arr[i].time][i] = arr[i].money;
-    }  
-    //print(intarr);
-    int x = 0;
-    for (int i = 0; i < intarr.length; i++) {
-      int max = intarr[i][0];
-      for (int j = 1; j < intarr[0].length; j++) {
-        max = Math.max(max, intarr[i][j]);
-      }      
-      x += max;
+    sort(arr);
+    /*System.out.println("despues del sort");
+
+    for (client client : arr) {
+      System.out.println(client);
+    }*/
+
+    for(int i = 0; i < arr.length; i++){
+      int y = arr[i].time;
+      //System.out.println("valor de y: " + y);
+      while(y >= 0){
+        if(maximos[y] == 0){
+          maximos[y] = arr[i].money;
+          break;
+        }
+        y--;
+      }
     }
-    System.out.println(x);
+    /*for (int i : maximos) {
+      System.out.print(i + ", ");
+    }
+    System.out.println();*/
+    int sum = 0;
+    for (int i = 0; i < maximos.length; i++) {
+      sum += maximos[i];
+    } 
+    System.out.println(sum);
+  }
+
+  public static void sort(client [] num){
+    for (int i = 0; i < num.length - 1; i++) {
+      for (int j = 0; j < num.length - 1 ; j++) {
+        if(num[j].money < num[j + 1].money){
+          int actual = num[j].money;
+          int actualT = num[j].time;
+          num[j].money = num[j + 1].money;
+          num[j].time = num[j + 1].time;
+          num[j + 1].money = actual;							
+          num[j + 1].time = actualT;							
+        }				
+      }
+    }
   }
   public static void print(int [][] intarr){
     for (int i = 0; i < intarr.length; i++) {
