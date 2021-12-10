@@ -41,7 +41,7 @@ public class viciousPikeman{
     for (int i = 0; i < N; i++) {
       if((tp + t[i]) <=  T) {
         tp += t[i];
-        p += tp% 1000000007;
+        p += tp;
         exercise++;
       }
       else{
@@ -49,9 +49,7 @@ public class viciousPikeman{
       }
     }
 
-    System.out.println(exercise + " " + p);
+    System.out.println(exercise + " " + ( p % 1000000007 ));
   }
-
-
 }
 
