@@ -25,17 +25,17 @@ public class viciousPikeman{
     int p = 0; // tiempo donde almancerameos el tiempo total de penalizacion
 
     // seguimiento
-    for (int i : t) {
+    /*for (int i : t) {
       System.out.println(i);
-    }
+    }*/
 
     sort(t); // como pikeman escoge el problema que más les convenga, pondremos la cantidad de los tiempos
     // en orden de menor a mayor 
     
     // seguimiento
-    for (int i : t) {
+    /*for (int i : t) {
       System.out.println(i);
-    }
+    }*/
 
     for (int i = 0; i < N; i++) {
       if( (tp  + t[i])  <=  T) {
