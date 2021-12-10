@@ -20,21 +20,47 @@ public class viciousPikeman{
       t[i] = ( ( (A * t[i-1]) + B) % C ) + 1;
     }
 
-    int tp = 0; // tiempo de penalizacion
+    int tp = 0; // tiempo de penalizacion por ejercicio
     int exercise = 0; // cantidad de ejercicios hechos
+    int p = 0; // tiempo donde almancerameos el tiempo total de penalizacion
+
+    // seguimiento
+    for (int i : t) {
+      System.out.println(i);
+    }
+
+    sort(t); // como pikeman escoge el problema que más les convenga, pondremos la cantidad de los tiempos
+    // en orden de menor a mayor 
+    
+    // seguimiento
+    for (int i : t) {
+      System.out.println(i);
+    }
+
     for (int i = 0; i < N; i++) {
       if( (tp  + t[i])  <=  T) {
-        tp = (tp + t[i]);
-        tp = tp % 1000000007;
-        exercise++;;
+        tp += t[i];
+        p = (p + tp) % 1000000007;
+        exercise++;
       }
       else{
         break;
       }
     }
 
-    System.out.println(exercise + " " + tp);
+    System.out.println(exercise + " " + p);
 
+  }
+  public static void sort(int [] t){
+    for (int i = 0; i < t.length - 1; i++) {
+      for (int j = 0; j < t.length - 1 ; j++) {
+        if(t[j] > t[j + 1]){
+          int actual = t[j];
+          t[j] = t[j + 1];
+          t[j + 1] = actual;							
+        }				
+      }
+    }
   }
 }
 
