@@ -2,7 +2,6 @@
 @Autor: Darwin Jesus Neira Carrasco
 @Email: dneirac@unsa.edu.pe
 @Descripcion:
-
 '''
 
 from  math import sqrt
@@ -16,13 +15,13 @@ def wateringGrass():
             distance = sqrt(r**2 - halfcuadratic) #distancia de rango de riego
             arr.append((p - distance, p + distance))
 
-    print(arr) # seguimiento
+    #print(arr) # seguimiento
     arr = sorted(arr, reverse= True) # se le asigna dado que  sorted genera un nuevo array
-    print(arr) # seguimiento
+    #print(arr) # seguimiento
     cant = 0 # cantidad de riegadores usados
     length = 0 # la longitud de los que se regara ,tiene que ser mayor a l, para que de esta forma sepamos que se rego todo
     i = 0
-    print("tamaño ", len(arr))
+    #print("tamaño ", len(arr))
 
     while(length < l):
         for i in range(len(arr)):
