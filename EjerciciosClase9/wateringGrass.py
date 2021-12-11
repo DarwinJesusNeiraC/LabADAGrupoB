@@ -21,8 +21,8 @@ def wateringGrass():
                 arr.append((p - distance, p + distance))
             if(estado == 0):# cuando se llegue a 0 aplicacremos el metodo de maximos
                 #print(arr) # seguimiento
-                arr = sorted(arr, reverse= True) # se le asigna dado que  sorted genera un nuevo array, ordenado de mayor a menor
-                print(maximo(arr,l))
+                #arr = sorted(arr, reverse= True) # se le asigna dado que  sorted genera un nuevo array, ordenado de mayor a menor
+                print(maximo(sorted(arr, reverse= True),l))
 
 def maximo(arr,l):
     #print(arr) # seguimiento
