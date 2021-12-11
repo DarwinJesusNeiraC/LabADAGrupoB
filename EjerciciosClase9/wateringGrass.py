@@ -16,26 +16,25 @@ def wateringGrass():
             arr.append((p - distance, p + distance))
 
     #print(arr) # seguimiento
-    arr = sorted(arr, reverse= True) # se le asigna dado que  sorted genera un nuevo array
+    arr = sorted(arr, reverse= True) # se le asigna dado que  sorted genera un nuevo array, ordenado de mayor a menor
     #print(arr) # seguimiento
     cant = 0 # cantidad de riegadores usados
     length = 0 # la longitud de los que se regara ,tiene que ser mayor a l, para que de esta forma sepamos que se rego todo
-    i = 0
     #print("tamaño ", len(arr))
 
-    while(length < l):
+    while(length < l):# haremos esto mientras que length sea menor a l
         for i in range(len(arr)):
-            if arr[i][0] <= length and arr[i][1] > length:
-                length = arr[i][1]
-                cant += 1
-                break
-        if(i == n):
+            if arr[i][0] <= length and arr[i][1] > length: 
+                length = arr[i][1] # establecermos el nuevo valor de length
+                cant += 1 #aumentaremos el valor de cant
+                break # pasamos al siguient
+        if(i == n): # al terminar el for terminaremos el ciclo while
             break
 
-    if(length < l):
-        cant = -1
+    if(length < l): # si el valor de length siguie siendo menoor a l despues del proceso anterior
+        cant = -1 #esatablcersmo el valor de cant como -1
 
-    print(cant)
+    print(cant) #imprimiremos el valor de cant
 
 
 wateringGrass()
