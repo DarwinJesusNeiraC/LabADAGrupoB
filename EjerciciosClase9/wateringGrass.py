@@ -1,7 +1,7 @@
 '''
 @Autor: Darwin Jesus Neira Carrasco
 @Email: dneirac@unsa.edu.pe
-@Descripcion:
+@Descripcion: dar el total de regadores usados para el el riego de una franja de pasto
 '''
 import sys
 from  math import sqrt
@@ -22,7 +22,7 @@ def wateringGrass():
                 arr.append((p - distance, p + distance))
             if(estado == 0): # cuando se llegue a 0 aplicacremos el metodo de maximos
                 #print(arr) # seguimiento
-                #arr = sorted(arr, reverse= True) # se le asigna dado que  sorted genera un nuevo array, ordenado de mayor a menor
+                # no se asignara sorted a array nuevamente, dado que afecta la tiempo computacional
                 print(maximo(sorted(arr),l,len(arr)))
 
 def maximo (arr,l,size):
@@ -33,20 +33,16 @@ def maximo (arr,l,size):
     #size = len(arr)
     #print("tamaño ", len(arr))
     # se establecio esta forma de conteo  dado que con la anterior se tinia problemas en el tiempo
-    while(True): # haremos esto mientras que length sea menor a l
-        far = -1
-        #for i in range(len(arr)):
+    while(True): # 
+        far = -1 # far tiene la funcion de ser el valor de la mayor disntacia usada
         while(i < size and arr[i][0] <= length):
-            #if arr[i][0] <= length and arr[i][1] > length: 
             far = max(far, arr[i][1])
             i += 1
         if far == -1:
-            #cant = -1
-            return -1
+            return -1 # se retornara para evitar pasarnos deltiempo computacional
         cant += 1 #aumentaremos el valor de cant
         length = far # establecermos el nuevo valor de length
         if(length > l):
-            return cant
-
+            return cant # se retornara para evitar pasarnos deltiempo computacional
 
 wateringGrass()
