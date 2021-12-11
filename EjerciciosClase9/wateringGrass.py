@@ -23,17 +23,18 @@ def wateringGrass():
             if(estado == 0): # cuando se llegue a 0 aplicacremos el metodo de maximos
                 #print(arr) # seguimiento
                 #arr = sorted(arr, reverse= True) # se le asigna dado que  sorted genera un nuevo array, ordenado de mayor a menor
-                print(maximo(sorted(arr),l))
+                print(maximo(sorted(arr),l,len(arr)))
 
-def maximo (arr,l):
+def maximo (arr,l,size):
     #print(arr) # seguimiento
     cant = 0 # cantidad de riegadores usados
     length = 0 # la longitud de los que se regara ,tiene que ser mayor a l, para que de esta forma sepamos que se rego todo
     i = 0
-    size = len(arr)
+    #size = len(arr)
     #print("tamaño ", len(arr))
+    # se establecio esta forma de conteo  dado que con la anterior se tinia problemas en el tiempo
     while(True): # haremos esto mientras que length sea menor a l
-        far = 0
+        far = -1
         #for i in range(len(arr)):
         while(i < size and arr[i][0] <= length):
             #if arr[i][0] <= length and arr[i][1] > length: 
@@ -46,8 +47,6 @@ def maximo (arr,l):
         length = far # establecermos el nuevo valor de length
         if(length > l):
             return cant
-            #break
 
-    #return cant
 
 wateringGrass()
