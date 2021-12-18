@@ -20,6 +20,9 @@ public class shortestRoutesII{
       arr[a][b] = Math.min(arr[a][b], c);
       arr[b][a] = Math.min(arr[b][a], c);
     }
+    for (int i = 0; i < arr.length; i++) {
+      arr[i][i] = 0;
+    }
     //System.out.println();
     //print(arr);
     for (int k = 1; k <= n; k++) {
@@ -35,7 +38,7 @@ public class shortestRoutesII{
     for (int i = 0; i < q; i++) {
       int a = scan.nextInt();
       int b = scan.nextInt();
-      if(arr[a][b] >= inf){
+      if(arr[a][b] >= 0x3f){
         System.out.println("-1");
       }
       else{
@@ -47,9 +50,7 @@ public class shortestRoutesII{
   public static void fillIn(int [][] arr){
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr.length; j++) {
-        if(i != j){
-          arr[i][j] = 0x3f;//(int) Double.POSITIVE_INFINITY;
-        }
+        arr[i][j] = 0x3f;//(int) Double.POSITIVE_INFINITY;
       }      
     }
   }
