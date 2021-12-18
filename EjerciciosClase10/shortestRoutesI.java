@@ -36,32 +36,24 @@ public class shortestRoutesI{
     }
   }
 
-  static final int inf = (int) Double.POSITIVE_INFINITY;
   public static void main (String[]args){
     Scanner scan = new Scanner(System.in);
     int n = scan.nextInt();
     int m = scan.nextInt();
     Arista [] conectando = new Arista[n+1];
-    for (int i = 0; i < conectando.length; i++) {
+    int [] distancias = new int [n+1];
+    for (int i = 0; i < distancias.length; i++) {
+      distancias[i] = (int) Double.POSITIVE_INFINITY;
       conectando[i] = new Arista(0, 0);
     }
-    int [] distancias = new int [n+1];
+
+    distancias[1] = 0;
     PriorityQueue<Node>  data = new PriorityQueue<Node>(); 
     for (int i = 0; i < m; i++) {
       int x = scan.nextInt();
       int y = scan.nextInt();
       int length = scan.nextInt();
-      if(conectando[x] == null){
-        System.out.println("vacio en conextacio[x]");
-      }
-      if(conectando[x].arr == null){
-        System.out.println("vacio");
-      }
       conectando[x].arr.add(new Arista(y, length));
-    }
-    distancias[1] = 0;
-    for (int i = 2; i < distancias.length; i++) {
-      distancias[i] = inf;
     }
 
     data.add(new Node(1, 0));
@@ -74,9 +66,10 @@ public class shortestRoutesI{
       }
 
       for(Arista a : conectando[u].arr){
-        if(distancias[a.conection] > (d + a.w)){
-          distancias[a.conection] = (d + a.w);
-          data.add(new Node(a.conection, (d + a.w)));
+        int x = (d + a.w);
+        if(distancias[a.conection] > x){
+          distancias[a.conection] = x;
+          data.add(new Node(a.conection, x));
         }
       }
     }
