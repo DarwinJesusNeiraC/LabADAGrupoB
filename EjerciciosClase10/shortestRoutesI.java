@@ -7,42 +7,83 @@
 import java.util.*;
 
 public class shortestRoutesI{
+  public static class Arista {
+    protected int conection;
+    protected int w;
+    protected LinkedList<Arista> arr;
+
+    public Arista(int conection, int w){
+      this.conection = conection;
+      this.w = w;
+      arr = new LinkedList<>();
+    }
+  }
+  public static class Node implements Comparable{
+    protected int distance;
+    protected int indice;
+    public Node (int indice, int distance){
+      this.indice = indice;
+      this.distance = distance;
+    }
+    @Override
+    public int compareTo(Object o) {
+        Node x = (Node) o;
+        if(this.distance > x.distance)
+          return 0;
+        else{
+          return -1;
+        }
+    }
+  }
+
+  static final int inf = (int) Double.POSITIVE_INFINITY;
   public static void main (String[]args){
     Scanner scan = new Scanner(System.in);
     int n = scan.nextInt();
     int m = scan.nextInt();
-    int [][] arr = new int [n][n];
+    Arista [] conectando = new Arista[n+1];
+    for (int i = 0; i < conectando.length; i++) {
+      conectando[i] = new Arista(0, 0);
+    }
+    int [] distancias = new int [n+1];
+    PriorityQueue<Node>  data = new PriorityQueue<Node>(); 
     for (int i = 0; i < m; i++) {
       int x = scan.nextInt();
       int y = scan.nextInt();
       int length = scan.nextInt();
-      arr[x-1][y-1] = length;
-      arr[y-1][x-1] = length;
-    }
-    print(arr);
-  }
-
-  public static int mincost(int [][] arr){
-    int n = 0; // suma
-    for (int i = 0; i < arr.length; i++) {
-      for (int j = 0; j < arr.length; j++) {
-        n = ;
-        
+      if(conectando[x] == null){
+        System.out.println("vacio en conextacio[x]");
       }
-    }    
-    return 0;
-  }
-
-  min
-
-  public static void print(int [][] arr){
-    for (int i = 0; i < arr.length; i++) {
-      for (int j = 0; j < arr.length; j++) {
-        System.out.print(arr[i][j] + "\t");
-      }      
-      System.out.println();
+      if(conectando[x].arr == null){
+        System.out.println("vacio");
+      }
+      conectando[x].arr.add(new Arista(y, length));
+    }
+    distancias[1] = 0;
+    for (int i = 2; i < distancias.length; i++) {
+      distancias[i] = inf;
     }
 
+    data.add(new Node(1, 0));
+    while(!data.isEmpty()){
+      int d = data.peek().distance;
+      int u = data.peek().indice;
+      data.poll();
+      if(d > distancias[u]){
+        continue;
+      }
+
+      for(Arista a : conectando[u].arr){
+        if(distancias[a.conection] > (d + a.w)){
+          distancias[a.conection] = (d + a.w);
+          data.add(new Node(a.conection, (d + a.w)));
+        }
+      }
+    }
+
+    for (int i = 1; i <= n; i++) {
+      System.out.print(distancias[i] + " ");
+    } 
   }
 }
 
