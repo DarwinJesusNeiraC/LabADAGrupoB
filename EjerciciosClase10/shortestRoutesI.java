@@ -10,12 +10,15 @@ public class shortestRoutesI{
   public static class Arista {
     protected int conection;
     protected int w;
-    protected LinkedList<Arista> arr;
+    //protected LinkedList<Arista> arr;
 
+    public Arista(){
+      this(0,0);
+    }
     public Arista(int conection, int w){
       this.conection = conection;
       this.w = w;
-      arr = new LinkedList<>();
+      //arr = new LinkedList<>();
     }
   }
   public static class Node implements Comparable{
@@ -40,11 +43,12 @@ public class shortestRoutesI{
     Scanner scan = new Scanner(System.in);
     int n = scan.nextInt();
     int m = scan.nextInt();
-    Arista [] conectando = new Arista[n+1];
+    //Arista [] conectando = new Arista[n+1];
+    LinkedList<Arista> [] conectando = new LinkedList[n+1];
     int [] distancias = new int [n+1];
     for (int i = 0; i < distancias.length; i++) {
-      distancias[i] = (int) Double.POSITIVE_INFINITY;
-      conectando[i] = new Arista(0, 0);
+      distancias[i] = 0x3f;
+      conectando[i] = new LinkedList<Arista>();
     }
 
     distancias[1] = 0;
@@ -53,7 +57,7 @@ public class shortestRoutesI{
       int x = scan.nextInt();
       int y = scan.nextInt();
       int length = scan.nextInt();
-      conectando[x].arr.add(new Arista(y, length));
+      conectando[x].add(new Arista(y, length));
     }
 
     data.add(new Node(1, 0));
@@ -65,7 +69,7 @@ public class shortestRoutesI{
         continue;
       }
 
-      for(Arista a : conectando[u].arr){
+      for(Arista a : conectando[u]){
         int x = (d + a.w);
         if(distancias[a.conection] > x){
           distancias[a.conection] = x;
