@@ -1,4 +1,5 @@
-def findBorders(string):
+def findBorders():
+    string = input()
     list = []
     leght = 0
     if len(string) % 2 == 0:
@@ -13,10 +14,11 @@ def findBorders(string):
     s = ""   
     for i in list:
         s += str(i) + " "
-    return s 
+    
+    print(s)
 
 #print(findBorders("abcababcab"))
 #print(findBorders("aaaaaaaaaa"))
-#print(findBorders("aaaaaaaaaa"))
+findBorders()
         
 
